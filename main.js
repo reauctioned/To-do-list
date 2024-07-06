@@ -1,14 +1,24 @@
-let todoList = ['here','there']
+let todoList = []
 
 renderList()
 
 function renderList(){
 
-        let todoHTML = ''
+     let todoHTML = ''
         
         for (let i = 0; i < todoList.length; i++) {
-            let list = todoList[i]
-            let html = `<p>${list} <button>Delete</button> </p>`
+            let listObj = todoList[i];
+            let { name, dueDate } = listObj;
+            let html = 
+            `<p>
+            ${name}${dueDate} 
+            <button onclick="
+             todoList.splice(${i},1)
+             renderList()
+             ">
+            Delete
+            </button> 
+            </p>`
         todoHTML += html
     }
 
@@ -17,7 +27,10 @@ function renderList(){
 
 function addTodo() {
     let inpElement = document.querySelector('.todoName').value
-    todoList.push(inpElement)
+    let dateElement = document.querySelector('.dueInp').value
+    todoList.push({name: inpElement, dueDate: dateElement})
+    
     document.querySelector('.todoName').value = ''
+    document.querySelector('.dueInp').value = ''
   renderList()
 }
