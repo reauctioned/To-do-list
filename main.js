@@ -10,15 +10,15 @@ function renderList(){
             let listObj = todoList[i];
             let { name, dueDate } = listObj;
             let html = 
-            `<p>
-            ${name}${dueDate} 
+            `<div>${name}</div>
+             <div>${dueDate}</div> 
             <button onclick="
              todoList.splice(${i},1)
              renderList()
              ">
             Delete
             </button> 
-            </p>`
+            `
         todoHTML += html
     }
 
