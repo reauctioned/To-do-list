@@ -8,7 +8,7 @@ function renderList(){
         
         for (let i = 0; i < todoList.length; i++) {
             let list = todoList[i]
-            let html = `<p>${list}</p>`
+            let html = `<p>${list} <button> Delete </button> </p>`
         todoHTML += html
     }
 
